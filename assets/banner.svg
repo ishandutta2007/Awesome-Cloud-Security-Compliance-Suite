@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+
+    <linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.8" />
+    </linearGradient>
+
+    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="soft-glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseOrb {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.15); }
+    }
+    @keyframes floatPill1 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes floatPill2 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(8px); }
+    }
+    @keyframes scanLine {
+      0% { transform: translateY(-50px); opacity: 0; }
+      20% { opacity: 0.6; }
+      80% { opacity: 0.6; }
+      100% { transform: translateY(380px); opacity: 0; }
+    }
+    @keyframes dashTravel {
+      to { stroke-dashoffset: -100; }
+    }
+
+    .orb-1 {
+      transform-origin: 150px 90px;
+      animation: pulseOrb 6s ease-in-out infinite;
+    }
+    .orb-2 {
+      transform-origin: 1050px 280px;
+      animation: pulseOrb 7s ease-in-out infinite reverse;
+    }
+    .pill-1 {
+      animation: floatPill1 5s ease-in-out infinite;
+    }
+    .pill-2 {
+      animation: floatPill2 6s ease-in-out infinite;
+    }
+    .pill-3 {
+      animation: floatPill1 7s ease-in-out infinite 1s;
+    }
+    .scanner {
+      animation: scanLine 8s linear infinite;
+    }
+    .data-wire {
+      stroke-dasharray: 6 10;
+      animation: dashTravel 4s linear infinite;
+    }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="360" rx="20" fill="url(#bg-grad)" stroke="#1f2937" stroke-width="2" />
+
+  <!-- Background Ambient Glowing Orbs -->
+  <circle class="orb-1" cx="150" cy="90" r="160" fill="#0369a1" filter="url(#glow)" />
+  <circle class="orb-2" cx="1050" cy="280" r="180" fill="#4f46e5" filter="url(#glow)" />
+  <circle cx="600" cy="180" r="220" fill="#0f172a" opacity="0.8" />
+
+  <!-- Dynamic Cyber Grid & Circuit Lines (Background) -->
+  <g opacity="0.15" stroke="#38bdf8" stroke-width="1">
+    <path d="M0,60 L1200,60 M0,120 L1200,120 M0,180 L1200,180 M0,240 L1200,240 M0,300 L1200,300" />
+    <path d="M120,0 L120,360 M240,0 L240,360 M360,0 L360,360 M480,0 L480,360 M600,0 L600,360 M720,0 L720,360 M840,0 L840,360 M960,0 L960,360 M1080,0 L1080,360" />
+  </g>
+
+  <!-- Animated Data Connection Wires -->
+  <path class="data-wire" d="M 80,40 Q 220,130 320,40 T 540,80" fill="none" stroke="#0ea5e9" stroke-width="2" opacity="0.4" />
+  <path class="data-wire" d="M 680,310 Q 860,240 980,310 T 1140,280" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.4" />
+
+  <!-- Subtle Vertical Scanner Line (Deep Background) -->
+  <line class="scanner" x1="0" y1="0" x2="1200" y2="0" stroke="url(#accent-cyan)" stroke-width="1.5" />
+
+  <!-- Floating Dynamic Tech Pills / Badges (Offset to sides to ensure title stays clear) -->
+  <g class="pill-1" transform="translate(60, 42)">
+    <rect width="130" height="34" rx="17" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" opacity="0.85" />
+    <text x="65" y="22" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">🔒 CSPM &amp; CWPP</text>
+  </g>
+
+  <g class="pill-2" transform="translate(1010, 48)">
+    <rect width="130" height="34" rx="17" fill="#0f172a" stroke="#a855f7" stroke-width="1.5" opacity="0.85" />
+    <text x="65" y="22" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">⚡ CNAPP CORE</text>
+  </g>
+
+  <g class="pill-3" transform="translate(970, 275)">
+    <rect width="170" height="34" rx="17" fill="#0f172a" stroke="#34d399" stroke-width="1.5" opacity="0.85" />
+    <text x="85" y="22" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">🛡️ SOC2 / CIS / HIPAA</text>
+  </g>
+
+  <g class="pill-1" transform="translate(60, 280)">
+    <rect width="150" height="34" rx="17" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" opacity="0.85" />
+    <text x="75" y="22" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">☁️ MULTI-CLOUD</text>
+  </g>
+
+  <!-- FOREGROUND BRANDING / TITLE (Always in crisp, unobstructed front) -->
+  <g transform="translate(600, 115)">
+    <!-- Security Shield Emblem -->
+    <path d="M-30,-50 C-15,-52 15,-52 30,-50 C32,-25 38,15 0,38 C-38,15 -32,-25 -30,-50 Z" 
+          fill="url(#shield-grad)" stroke="#38bdf8" stroke-width="2.5" filter="url(#soft-glow)" />
+    <!-- Checkmark inside Shield -->
+    <path d="M-10,-5 L-2,4 L12,-12" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Main Title -->
+  <text x="600" y="195" 
+        fill="url(#text-grad)" 
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+        font-size="44" 
+        font-weight="900" 
+        text-anchor="middle" 
+        letter-spacing="-0.5"
+        filter="url(#soft-glow)">
+    Awesome Cloud Security &amp; Compliance Suite
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="235" 
+        fill="#94a3b8" 
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+        font-size="17" 
+        font-weight="500" 
+        text-anchor="middle" 
+        letter-spacing="0.5">
+    The Definitive Guide to Enterprise SaaS Platforms &amp; Leading Open-Source Engines
+  </text>
+
+  <!-- Bottom Interactive Tagline -->
+  <text x="600" y="268" 
+        fill="#38bdf8" 
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+        font-size="13" 
+        font-weight="600" 
+        text-anchor="middle" 
+        letter-spacing="2">
+    AWS • AZURE • GCP • KUBERNETES • DOCKER • TERRAFORM • CI/CD
+  </text>
+</svg>
